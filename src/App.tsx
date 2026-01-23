@@ -1,12 +1,13 @@
-import './assets/css/App.css'
-
+import "./assets/css/App.css";
+import MainLayout from "./layout/Main";
 function App() {
-
   return (
     <>
-      <h1>Vite + React</h1>
+      <MainLayout>
+        <h1>Vite + React</h1>
+      </MainLayout>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
