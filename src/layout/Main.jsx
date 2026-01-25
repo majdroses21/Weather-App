@@ -1,5 +1,6 @@
 import { Header, Footer } from "../components/layout";
 import "../assets/css/layout.css";
+import TailwindIndicator from "../components/TailwindIndicator";
 const MainLayout = ({ children }) => {
   return (
     <>
@@ -7,6 +8,7 @@ const MainLayout = ({ children }) => {
         <Header />
         <main className="main">{children}</main>
         <Footer />
+        <TailwindIndicator/>
       </div>
     </>
   );
