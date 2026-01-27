@@ -1,6 +1,8 @@
-/* :root {
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-} */
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -47,83 +49,329 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* Default theme - Air Theme Light Mode */
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --background: oklch(0.98 0.008 160);
+  --foreground: oklch(0.22 0.02 180);
+  --card: oklch(0.995 0.005 160);
+  --card-foreground: oklch(0.22 0.02 180);
+  --popover: oklch(0.995 0.005 160);
+  --popover-foreground: oklch(0.22 0.02 180);
+  --primary: oklch(0.58 0.12 175);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.82 0.04 170);
+  --secondary-foreground: oklch(0.25 0.02 180);
+  --muted: oklch(0.94 0.005 170);
+  --muted-foreground: oklch(0.52 0.015 175);
+  --accent: oklch(0.85 0.12 130);
+  --accent-foreground: oklch(0.2 0.02 130);
+  --destructive: oklch(0.63 0.26 28);
+  --border: oklch(0.89 0.01 170);
+  --input: oklch(0.96 0.005 170);
+  --ring: oklch(0.58 0.12 175);
+  --chart-1: oklch(0.58 0.12 175);
+  --chart-2: oklch(0.85 0.12 130);
+  --chart-3: oklch(0.65 0.1 155);
+  --chart-4: oklch(0.72 0.08 190);
+  --chart-5: oklch(0.75 0.1 165);
+  --sidebar: oklch(0.985 0.008 160);
+  --sidebar-foreground: oklch(0.22 0.02 180);
+  --sidebar-primary: oklch(0.58 0.12 175);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.94 0.005 170);
+  --sidebar-accent-foreground: oklch(0.25 0.02 180);
+  --sidebar-border: oklch(0.89 0.01 170);
+  --sidebar-ring: oklch(0.58 0.12 175);
 }
 
+/* Default theme - Air Theme Dark Mode */
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: oklch(0.16 0.015 180);
+  --foreground: oklch(0.94 0.008 160);
+  --card: oklch(0.2 0.015 175);
+  --card-foreground: oklch(0.94 0.008 160);
+  --popover: oklch(0.2 0.015 175);
+  --popover-foreground: oklch(0.94 0.008 160);
+  --primary: oklch(0.65 0.13 170);
+  --primary-foreground: oklch(0.12 0.015 180);
+  --secondary: oklch(0.32 0.04 175);
+  --secondary-foreground: oklch(0.94 0.008 160);
+  --muted: oklch(0.25 0.015 175);
+  --muted-foreground: oklch(0.62 0.01 170);
+  --accent: oklch(0.78 0.13 140);
+  --accent-foreground: oklch(0.12 0.015 180);
+  --destructive: oklch(0.65 0.2 25);
+  --border: oklch(0.28 0.02 175);
+  --input: oklch(0.22 0.015 175);
+  --ring: oklch(0.65 0.13 170);
+  --chart-1: oklch(0.65 0.13 170);
+  --chart-2: oklch(0.78 0.13 140);
+  --chart-3: oklch(0.6 0.11 160);
+  --chart-4: oklch(0.68 0.1 185);
+  --chart-5: oklch(0.7 0.11 165);
+  --sidebar: oklch(0.18 0.015 180);
+  --sidebar-foreground: oklch(0.94 0.008 160);
+  --sidebar-primary: oklch(0.65 0.13 170);
+  --sidebar-primary-foreground: oklch(0.12 0.015 180);
+  --sidebar-accent: oklch(0.25 0.015 175);
+  --sidebar-accent-foreground: oklch(0.94 0.008 160);
+  --sidebar-border: oklch(0.28 0.02 175);
+  --sidebar-ring: oklch(0.65 0.13 170);
+}
+
+/* ============================================ */
+/* Sky Theme - Light Mode */
+/* ============================================ */
+.samaa-theme {
+  /* Soft sky blue gradient background */
+  --background: oklch(0.97 0.018 235);
+  --foreground: oklch(0.2 0.035 245);
+  
+  --card: oklch(0.99 0.012 235);
+  --card-foreground: oklch(0.2 0.035 245);
+  
+  --popover: oklch(0.99 0.012 235);
+  --popover-foreground: oklch(0.2 0.035 245);
+  
+  /* Vibrant sky blue - Primary */
+  --primary: oklch(0.61 0.175 245);
+  --primary-foreground: oklch(0.99 0 0);
+  
+  /* Light sky blue - Secondary */
+  --secondary: oklch(0.87 0.08 235);
+  --secondary-foreground: oklch(0.25 0.035 245);
+  
+  /* Warm golden yellow - Accent (sun) */
+  --accent: oklch(0.8 0.16 75);
+  --accent-foreground: oklch(0.15 0.025 70);
+  
+  --muted: oklch(0.94 0.015 235);
+  --muted-foreground: oklch(0.5 0.02 240);
+  
+  --border: oklch(0.9 0.01 235);
+  --input: oklch(0.96 0.008 235);
+  --ring: oklch(0.61 0.175 245);
+  
+  --destructive: oklch(0.63 0.26 28);
+  
+  /* Weather-inspired chart colors */
+  --chart-1: oklch(0.61 0.175 245);
+  --chart-2: oklch(0.8 0.16 75);
+  --chart-3: oklch(0.72 0.12 185);
+  --chart-4: oklch(0.6 0.1 260);
+  --chart-5: oklch(0.78 0.14 210);
+  
+  /* Sidebar */
+  --sidebar: oklch(0.985 0.01 235);
+  --sidebar-foreground: oklch(0.2 0.035 245);
+  --sidebar-primary: oklch(0.61 0.175 245);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.94 0.015 235);
+  --sidebar-accent-foreground: oklch(0.25 0.035 245);
+  --sidebar-border: oklch(0.9 0.01 235);
+  --sidebar-ring: oklch(0.61 0.175 245);
+}
+
+/* ============================================ */
+/* Sky Theme - Dark Mode */
+/* ============================================ */
+.samaa-theme.dark {
+  /* Night sky dark blue */
+  --background: oklch(0.15 0.04 260);
+  --foreground: oklch(0.96 0.01 235);
+  
+  --card: oklch(0.2 0.04 255);
+  --card-foreground: oklch(0.96 0.01 235);
+  
+  --popover: oklch(0.2 0.04 255);
+  --popover-foreground: oklch(0.96 0.01 235);
+  
+  /* Bright sky blue for dark mode */
+  --primary: oklch(0.72 0.16 240);
+  --primary-foreground: oklch(0.12 0.03 260);
+  
+  --secondary: oklch(0.32 0.06 245);
+  --secondary-foreground: oklch(0.96 0.01 235);
+  
+  /* Golden/amber for stars and moon */
+  --accent: oklch(0.82 0.14 80);
+  --accent-foreground: oklch(0.12 0.03 260);
+  
+  --muted: oklch(0.27 0.04 255);
+  --muted-foreground: oklch(0.68 0.02 240);
+  
+  --border: oklch(0.3 0.04 255);
+  --input: oklch(0.23 0.04 255);
+  --ring: oklch(0.72 0.16 240);
+  
+  --destructive: oklch(0.65 0.2 25);
+  
+  --chart-1: oklch(0.72 0.16 240);
+  --chart-2: oklch(0.82 0.14 80);
+  --chart-3: oklch(0.68 0.12 190);
+  --chart-4: oklch(0.65 0.11 270);
+  --chart-5: oklch(0.75 0.13 215);
+  
+  --sidebar: oklch(0.17 0.04 260);
+  --sidebar-foreground: oklch(0.96 0.01 235);
+  --sidebar-primary: oklch(0.72 0.16 240);
+  --sidebar-primary-foreground: oklch(0.12 0.03 260);
+  --sidebar-accent: oklch(0.27 0.04 255);
+  --sidebar-accent-foreground: oklch(0.96 0.01 235);
+  --sidebar-border: oklch(0.3 0.04 255);
+  --sidebar-ring: oklch(0.72 0.16 240);
+}
+
+/* ============================================ */
+/* Air Theme - Light Mode */
+/* ============================================ */
+.hawaa-theme {
+  /* Clean white background with subtle teal touch */
+  --background: oklch(0.98 0.008 160);
+  --foreground: oklch(0.22 0.02 180);
+  
+  --card: oklch(0.995 0.005 160);
+  --card-foreground: oklch(0.22 0.02 180);
+  
+  --popover: oklch(0.995 0.005 160);
+  --popover-foreground: oklch(0.22 0.02 180);
+  
+  /* Modern teal/cyan - Primary */
+  --primary: oklch(0.58 0.12 175);
+  --primary-foreground: oklch(0.99 0 0);
+  
+  /* Soft gray-green - Secondary */
+  --secondary: oklch(0.82 0.04 170);
+  --secondary-foreground: oklch(0.25 0.02 180);
+  
+  /* Fresh lime green - Accent */
+  --accent: oklch(0.85 0.12 130);
+  --accent-foreground: oklch(0.2 0.02 130);
+  
+  --muted: oklch(0.94 0.005 170);
+  --muted-foreground: oklch(0.52 0.015 175);
+  
+  --border: oklch(0.89 0.01 170);
+  --input: oklch(0.96 0.005 170);
+  --ring: oklch(0.58 0.12 175);
+  
+  --destructive: oklch(0.63 0.26 28);
+  
+  /* Nature-inspired colors */
+  --chart-1: oklch(0.58 0.12 175);
+  --chart-2: oklch(0.85 0.12 130);
+  --chart-3: oklch(0.65 0.1 155);
+  --chart-4: oklch(0.72 0.08 190);
+  --chart-5: oklch(0.75 0.1 165);
+  
+  /* Sidebar */
+  --sidebar: oklch(0.985 0.008 160);
+  --sidebar-foreground: oklch(0.22 0.02 180);
+  --sidebar-primary: oklch(0.58 0.12 175);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.94 0.005 170);
+  --sidebar-accent-foreground: oklch(0.25 0.02 180);
+  --sidebar-border: oklch(0.89 0.01 170);
+  --sidebar-ring: oklch(0.58 0.12 175);
+}
+
+/* ============================================ */
+/* Air Theme - Dark Mode */
+/* ============================================ */
+.hawaa-theme.dark {
+  /* Calm dark night with green touch */
+  --background: oklch(0.16 0.015 180);
+  --foreground: oklch(0.94 0.008 160);
+  
+  --card: oklch(0.2 0.015 175);
+  --card-foreground: oklch(0.94 0.008 160);
+  
+  --popover: oklch(0.2 0.015 175);
+  --popover-foreground: oklch(0.94 0.008 160);
+  
+  /* Bright teal for dark mode */
+  --primary: oklch(0.65 0.13 170);
+  --primary-foreground: oklch(0.12 0.015 180);
+  
+  --secondary: oklch(0.32 0.04 175);
+  --secondary-foreground: oklch(0.94 0.008 160);
+  
+  /* Light neon green */
+  --accent: oklch(0.78 0.13 140);
+  --accent-foreground: oklch(0.12 0.015 180);
+  
+  --muted: oklch(0.25 0.015 175);
+  --muted-foreground: oklch(0.62 0.01 170);
+  
+  --border: oklch(0.28 0.02 175);
+  --input: oklch(0.22 0.015 175);
+  --ring: oklch(0.65 0.13 170);
+  
+  --destructive: oklch(0.65 0.2 25);
+  
+  --chart-1: oklch(0.65 0.13 170);
+  --chart-2: oklch(0.78 0.13 140);
+  --chart-3: oklch(0.6 0.11 160);
+  --chart-4: oklch(0.68 0.1 185);
+  --chart-5: oklch(0.7 0.11 165);
+  
+  --sidebar: oklch(0.18 0.015 180);
+  --sidebar-foreground: oklch(0.94 0.008 160);
+  --sidebar-primary: oklch(0.65 0.13 170);
+  --sidebar-primary-foreground: oklch(0.12 0.015 180);
+  --sidebar-accent: oklch(0.25 0.015 175);
+  --sidebar-accent-foreground: oklch(0.94 0.008 160);
+  --sidebar-border: oklch(0.28 0.02 175);
+  --sidebar-ring: oklch(0.65 0.13 170);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  
   body {
     @apply bg-background text-foreground;
+    font-family: 'Nunito', 'Amiri', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
+  
   #root {
     @apply min-h-screen;
+  }
+  
+  /* Arabic language optimizations */
+  *[lang="ar"], 
+  .arabic {
+    font-family: 'Amiri', 'Nunito', serif;
+    direction: rtl;
+  }
+  
+  /* English language optimizations */
+  *[lang="en"], 
+  .english {
+    font-family: 'Nunito', 'Amiri', sans-serif;
+    direction: ltr;
+  }
+  
+  /* Smooth transition effects */
+  .samaa-theme *,
+  .hawaa-theme * {
+    transition: background-color 0.4s ease, 
+                color 0.4s ease, 
+                border-color 0.4s ease;
+  }
+}
+
+@layer utilities {
+  .shadow-theme {
+    box-shadow: 0 4px 6px -1px oklch(var(--border) / 0.15),
+                0 2px 4px -1px oklch(var(--border) / 0.08);
+  }
+  
+  .shadow-theme-lg {
+    box-shadow: 0 10px 15px -3px oklch(var(--border) / 0.15),
+                0 4px 6px -2px oklch(var(--border) / 0.08);
   }
 }
