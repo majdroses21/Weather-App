@@ -1,4 +1,5 @@
 import { Settings, Bell, User, Calendar, Star, MessageSquareWarning  } from "lucide-react";
+import ThemeModal from "@/components/modals/ThemeModal";
 
 // Input Search
 import { Button } from "@/components/ui/button";
@@ -67,9 +68,11 @@ const MainHeader = ({ logo }) => {
             <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
               <Bell className="w-5 h-5 text-gray-600" />
             </button>
-            <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
-              <Settings className="w-5 h-5 text-gray-600" />
-            </button>
+            <ThemeModal>
+              <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
+                <Settings className="w-5 h-5 text-gray-600" />
+              </button>
+            </ThemeModal>
             <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
               <User className="w-5 h-5 text-gray-600" />
             </button>

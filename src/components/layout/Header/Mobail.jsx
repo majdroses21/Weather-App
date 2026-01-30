@@ -9,6 +9,7 @@ import {
   Calendar,
   Star,
 } from "lucide-react";
+import ThemeModal from "@/components/modals/ThemeModal";
 
 // Input Search
 import { Button } from "@/components/ui/button";
@@ -51,9 +52,11 @@ const MobailHeader = ({ logo }) => {
         </div>
 
         {/* Left Side - Single Icon */}
-        <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
-          <Settings className="w-5 h-5 text-gray-600" />
-        </button>
+        <ThemeModal>
+          <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
+            <Settings className="w-5 h-5 text-gray-600" />
+          </button>
+        </ThemeModal>
       </div>
 
       {/* Mobile Sidebar Menu */}
@@ -105,13 +108,15 @@ const MobailHeader = ({ logo }) => {
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition-colors"
-                >
-                  <Settings className="w-5 h-5" />
-                  <span>الإعدادات</span>
-                </a>
+                <ThemeModal>
+                  <a
+                    href="#"
+                    className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition-colors"
+                  >
+                    <Settings className="w-5 h-5" />
+                    <span>الإعدادات</span>
+                  </a>
+                </ThemeModal>
               </li>
               <li>
                 <a
