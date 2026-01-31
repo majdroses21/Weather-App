@@ -45,7 +45,7 @@ const MobailHeader = ({ logo }) => {
         <div className="relative flex-1 mx-3">
           <Field>
             <ButtonGroup>
-              <Input id="input-button-group" placeholder="Type to search..." />
+              <Input id="input-button-group" placeholder="Type to search..." className="placeholder:text-secondary'" />
               <Button variant="outline">Search</Button>
             </ButtonGroup>
           </Field>
@@ -53,21 +53,21 @@ const MobailHeader = ({ logo }) => {
 
         {/* Left Side - Single Icon */}
         <ThemeModal>
-          <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
-            <Settings className="w-5 h-5 text-gray-600" />
+          <button className="p-2 hover:bg-[rgba(0,0,0,0.18)] rounded-full transition-colors">
+            <Settings className="w-5 h-5 text-secondary" />
           </button>
         </ThemeModal>
       </div>
 
       {/* Mobile Sidebar Menu */}
       <div
-        className={`md:hidden fixed inset-0 bg-black bg-opacity-50 transition-opacity z-40 ${
+        className={`md:hidden fixed inset-0 bg-[rgba(0,0,0,0.7)] bg-opacity-50 transition-opacity z-40 ${
           isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setIsMobileMenuOpen(false)}
       >
         <div
-          className={`fixed right-0 top-0 h-full w-72 bg-white shadow-2xl transform transition-transform ${
+          className={`fixed right-0 top-0 h-full w-72 bg-secondary shadow-2xl transform transition-transform ${
             isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
           onClick={(e) => e.stopPropagation()}
@@ -92,7 +92,7 @@ const MobailHeader = ({ logo }) => {
               <li>
                 <a
                   href="#"
-                  className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition-colors"
+                  className="flex items-center gap-3 text-black dark:text-white hover:text-blue-600 transition-colors"
                 >
                   <Calendar className="w-5 h-5" />
                   <span>توقعات الأسبوع</span>
@@ -101,7 +101,7 @@ const MobailHeader = ({ logo }) => {
               <li>
                 <a
                   href="#"
-                  className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition-colors"
+                  className="flex items-center gap-3 text-black dark:text-white hover:text-blue-600 transition-colors"
                 >
                   <Star className="w-5 h-5" />
                   <span>مدني المفضلة</span>
@@ -111,7 +111,7 @@ const MobailHeader = ({ logo }) => {
                 <ThemeModal>
                   <a
                     href="#"
-                    className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition-colors"
+                    className="flex items-center gap-3 text-black dark:text-white hover:text-blue-600 transition-colors"
                   >
                     <Settings className="w-5 h-5" />
                     <span>الإعدادات</span>
@@ -121,7 +121,7 @@ const MobailHeader = ({ logo }) => {
               <li>
                 <a
                   href="#"
-                  className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition-colors"
+                  className="flex items-center gap-3 text-black dark:text-white hover:text-blue-600 transition-colors"
                 >
                   <Bell className="w-5 h-5" />
                   <span>الإشعارات</span>
@@ -130,7 +130,7 @@ const MobailHeader = ({ logo }) => {
               <li>
                 <a
                   href="#"
-                  className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition-colors"
+                  className="flex items-center gap-3 text-black dark:text-white hover:text-blue-600 transition-colors"
                 >
                   <MessageSquareWarning className="w-5 h-5" />
                   <span>حول</span>
