@@ -1,34 +1,34 @@
-const Links = [
-  {
-    title: "Projects",
-    link: "/projects",
-  },
-  {
-    title: "Contact",
-    link: "/contact",
-  },
-  {
-    title: "About",
-    link: "/about",
-  },
+import { Facebook, Send, Linkedin } from "lucide-react";
+
+const socials = [
+  { href: "https://facebook.com/majdDev21", label: "Facebook", Icon: Facebook },
+  { href: "https://www.linkedin.com/in/majdroses21", label: "LinkedIn", Icon: Linkedin },
+  { href: "https://t.me/majdroses21", label: "Telegram", Icon: Send },
 ];
-const Footer = () => {
-  return (
-    <>
-      <footer className="footer bg-gray-400 shadow-2xl flex h-14 flexc">
-        <h1>Footer</h1>
-        {Links.map((ln, i) => (
-          <a
-            key={i}
-            href={ln.link}
-            className="text-sm font-medium hover:text-blue-600"
-          >
-            {ln.title}
-          </a>
+
+const Footer = () => (
+  <footer className="footer bg-primary p-4 mt-auto">
+    <div className="max-w-7xl mx-auto px-4 text-center">
+      <ul className="flex justify-center gap-3 p-0 m-0 list-none mb-3">
+        {socials.map(({ href, label, Icon }) => (
+          <li key={label}>
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="flex items-center gap-1 text-white no-underline transition-transform duration-300 hover:opacity-70 hover:-translate-y-0.5"
+            >
+              <Icon />
+              <span className="sr-only md:inline">{label}</span>
+            </a>
+          </li>
         ))}
-      </footer>
-    </>
-  );
-};
+      </ul>
+
+      <p className="font-medium text-[0.9rem] text-white">All Copyrights are Saved © {new Date().getFullYear()}</p>
+    </div>
+  </footer>
+);
 
 export default Footer;
