@@ -1,6 +1,7 @@
 import "./assets/css/App.css";
 import MainLayout from "./layout/Main";
 import Test from "./components/Test";
+import Home from "./components/Home";
 import { CustomThemeProvider } from "./contexts/ThemeContext.jsx";
 
 function App() {
@@ -8,10 +9,8 @@ function App() {
     <>
       <CustomThemeProvider>
         <MainLayout>
-          <h1>Vite + React</h1>
-          <br />
-          <h1>Vite + React</h1>
-          <Test />
+          <Home />
+          {/* <Test /> */}
         </MainLayout>
       </CustomThemeProvider>
     </>
