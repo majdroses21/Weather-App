@@ -38,14 +38,14 @@ const MobailHeader = ({ logo }) => {
               <Menu className="w-6 h-6 text-gray-700" />
             )}
           </button>
-          <h1 className="text-lg font-bold text-gray-800">Hawaa</h1>
+          <h1 className="text-lg font-bold text-primary-foreground">Hawaa</h1>
         </div>
 
         {/* Center - Search Box */}
         <div className="relative flex-1 mx-3">
           <Field>
             <ButtonGroup>
-              <Input id="input-button-group" placeholder="Type to search..." className="placeholder:text-secondary'" />
+              <Input id="input-button-group" placeholder="Type to search..." className="placeholder:text-primary-foreground'" />
               <Button variant="outline">Search</Button>
             </ButtonGroup>
           </Field>
@@ -54,7 +54,7 @@ const MobailHeader = ({ logo }) => {
         {/* Left Side - Single Icon */}
         <ThemeModal>
           <button className="p-2 hover:bg-[rgba(0,0,0,0.18)] rounded-full transition-colors">
-            <Settings className="w-5 h-5 text-secondary" />
+            <Settings className="w-5 h-5 text-primary-foreground" />
           </button>
         </ThemeModal>
       </div>
@@ -82,7 +82,7 @@ const MobailHeader = ({ logo }) => {
                   className="h-8 w-auto md:h-10 lg:h-12 object-contain"
                 />
               </a>
-              <h2 className="text-xl font-bold text-gray-800">Hawaa</h2>
+              <h2 className="text-xl font-bold text-primary-foreground">Hawaa</h2>
             </div>
           </div>
 

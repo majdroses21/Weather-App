@@ -20,27 +20,27 @@ const MainHeader = ({ logo }) => {
               className="h-8 w-auto md:h-10 lg:h-12 object-contain"
             />
           </a>
-          <h1 className="text-xl font-bold text-secondary">Hawaa</h1>
+          <h1 className="text-xl font-bold text-primary-foreground">Hawaa</h1>
         </div>
          {/* Navigation Links */}
           <nav className="flex items-center gap-6">
             <a
               href="#"
-              className="flex items-center gap-2 text-secondary hover:text-3xl  transition-colors font-medium"
+              className="flex items-center gap-2 text-primary-foreground hover:text-3xl  transition-colors font-medium"
             >
               <Calendar className="w-4 h-4" /> 
               <span>التوقعات</span>
             </a>
             <a
               href="#"
-              className="flex items-center gap-2 text-secondary hover:text-3xl transition-colors font-medium"
+              className="flex items-center gap-2 text-primary-foreground hover:text-3xl transition-colors font-medium"
             >
               <Star className="w-4 h-4" />
               <span>المفضلة</span>
             </a>
             <a
               href="#"
-              className="flex items-center gap-2 text-secondary hover:text-3xl transition-colors font-medium"
+              className="flex items-center gap-2 text-primary-foreground hover:text-3xl transition-colors font-medium"
             >
               <MessageSquareWarning className="w-4 h-4" />
               <span>حول</span>
@@ -57,7 +57,7 @@ const MainHeader = ({ logo }) => {
                 <Input
                   id="input-button-group"
                   placeholder="Type to search..."
-                  className="text-secondary placeholder:text-secondary dark:placeholder:text-shadow-white"
+                  className="text-primary-foreground placeholder:text-secondary dark:placeholder:text-gray-400"
                 />
                 <Button variant="outline" className="">Search</Button>
               </ButtonGroup>
@@ -69,19 +69,19 @@ const MainHeader = ({ logo }) => {
             <button
               className="p-2 rounded-full transition-colors hover:bg-[rgba(0,0,0,0.18)]"
             >
-              <Bell className="w-5 h-5 text-secondary" />
+              <Bell className="w-5 h-5 text-primary-foreground" />
             </button>
             <ThemeModal>
               <button
                 className="p-2 rounded-full transition-colors hover:bg-[rgba(0,0,0,0.18)]"
               >
-                <Settings className="w-5 h-5 text-secondary" />
+                <Settings className="w-5 h-5 text-primary-foreground" />
               </button>
             </ThemeModal>
             <button
               className="p-2 rounded-full transition-colors hover:bg-[rgba(0,0,0,0.18)]"
             >
-              <User className="w-5 h-5 text-secondary" />
+              <User className="w-5 h-5 text-primary-foreground" />
             </button>
           </div>
         </div>

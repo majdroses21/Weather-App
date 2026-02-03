@@ -87,14 +87,17 @@
 
 /* Default theme - Air Theme Dark Mode */
 .dark {
+  /* اللون الأساسي #202c3c */
   --background: oklch(0.16 0.015 180);
   --foreground: oklch(0.94 0.008 160);
   --card: oklch(0.2 0.015 175);
   --card-foreground: oklch(0.94 0.008 160);
   --popover: oklch(0.2 0.015 175);
   --popover-foreground: oklch(0.94 0.008 160);
-  --primary: oklch(0.65 0.13 170);
-  --primary-foreground: oklch(0.12 0.015 180);
+  
+  /* دمج مع #202c3c */
+  --primary: oklch(0.19 0.04 210);
+  --primary-foreground: oklch(0.94 0.008 160);
   --secondary: oklch(0.32 0.04 175);
   --secondary-foreground: oklch(0.94 0.008 160);
   --muted: oklch(0.25 0.015 175);
@@ -112,8 +115,8 @@
   --chart-5: oklch(0.7 0.11 165);
   --sidebar: oklch(0.18 0.015 180);
   --sidebar-foreground: oklch(0.94 0.008 160);
-  --sidebar-primary: oklch(0.65 0.13 170);
-  --sidebar-primary-foreground: oklch(0.12 0.015 180);
+  --sidebar-primary: oklch(0.19 0.04 210);
+  --sidebar-primary-foreground: oklch(0.94 0.008 160);
   --sidebar-accent: oklch(0.25 0.015 175);
   --sidebar-accent-foreground: oklch(0.94 0.008 160);
   --sidebar-border: oklch(0.28 0.02 175);
@@ -187,9 +190,9 @@
   --popover: oklch(0.2 0.04 255);
   --popover-foreground: oklch(0.96 0.01 235);
   
-  /* Bright sky blue for dark mode */
-  --primary: oklch(0.72 0.16 240);
-  --primary-foreground: oklch(0.12 0.03 260);
+  /* دمج مع #202c3c - لون أزرق داكن عميق */
+  --primary: oklch(0.19 0.04 240);
+  --primary-foreground: oklch(0.96 0.01 235);
   
   --secondary: oklch(0.32 0.06 245);
   --secondary-foreground: oklch(0.96 0.01 235);
@@ -215,8 +218,8 @@
   
   --sidebar: oklch(0.17 0.04 260);
   --sidebar-foreground: oklch(0.96 0.01 235);
-  --sidebar-primary: oklch(0.72 0.16 240);
-  --sidebar-primary-foreground: oklch(0.12 0.03 260);
+  --sidebar-primary: oklch(0.19 0.04 240);
+  --sidebar-primary-foreground: oklch(0.96 0.01 235);
   --sidebar-accent: oklch(0.27 0.04 255);
   --sidebar-accent-foreground: oklch(0.96 0.01 235);
   --sidebar-border: oklch(0.3 0.04 255);
@@ -290,9 +293,9 @@
   --popover: oklch(0.2 0.015 175);
   --popover-foreground: oklch(0.94 0.008 160);
   
-  /* Bright teal for dark mode */
-  --primary: oklch(0.65 0.13 170);
-  --primary-foreground: oklch(0.12 0.015 180);
+  /* دمج مع #202c3c - لون أزرق-أخضر داكن */
+  --primary: oklch(0.19 0.04 210);
+  --primary-foreground: oklch(0.94 0.008 160);
   
   --secondary: oklch(0.32 0.04 175);
   --secondary-foreground: oklch(0.94 0.008 160);
@@ -318,8 +321,8 @@
   
   --sidebar: oklch(0.18 0.015 180);
   --sidebar-foreground: oklch(0.94 0.008 160);
-  --sidebar-primary: oklch(0.65 0.13 170);
-  --sidebar-primary-foreground: oklch(0.12 0.015 180);
+  --sidebar-primary: oklch(0.19 0.04 210);
+  --sidebar-primary-foreground: oklch(0.94 0.008 160);
   --sidebar-accent: oklch(0.25 0.015 175);
   --sidebar-accent-foreground: oklch(0.94 0.008 160);
   --sidebar-border: oklch(0.28 0.02 175);

@@ -64,10 +64,10 @@ export const ThemeControls = () => {
             </Button>
             
             {/* للتجربة - عرض الحالة الحالية */}
-            <div className="text-sm text-muted-foreground">
+            {/* <div className="text-sm text-muted-foreground">
                 <div>Theme: {currTheme}</div>
                 <div>Mode: {darkMode ? 'Dark' : 'Light'}</div>
-            </div>
+            </div> */}
         </div>
     );
 };
