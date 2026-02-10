@@ -1,3 +1,4 @@
+// Icons
 import {
   CloudRain,
   Sun,
@@ -9,12 +10,14 @@ import {
   CloudDrizzle,
   CloudFog,
   Cloudy,
+  Snowflake,
 } from "lucide-react";
 
 //axios
 import axios from "axios";
 const link = `https://api.open-meteo.com/v1/forecast?latitude=35.3621&longitude=35.9276&current=temperature_2m,apparent_temperature,precipitation_probability,wind_speed_10m&hourly=temperature_2m,apparent_temperature,precipitation_probability,wind_speed_10m,uv_index&timezone=auto&past_hours=6`;
 // Links For Testing
+// const link = `https://api.open-meteo.com/v1/forecast?latitude=55.7558&longitude=37.6173&current=temperature_2m,apparent_temperature,precipitation_probability,wind_speed_10m&hourly=temperature_2m,apparent_temperature,precipitation_probability,wind_speed_10m,uv_index&timezone=auto&past_hours=6`;
 // const link = `https://api.open-meteo.com/v1/forecast?latitude=64.1466&longitude=-21.9426&current=temperature_2m,apparent_temperature,precipitation_probability,wind_speed_10m&hourly=temperature_2m,apparent_temperature,precipitation_probability,wind_speed_10m,uv_index&timezone=auto&past_hours=6`;
 // react
 import { useEffect, useState } from "react";
@@ -31,7 +34,6 @@ const Home = () => {
     })
   }).then((response) => {
     // handling success
-    // const responseTemp = Math.round(response.data.main.temp - 273.15);
     console.log('Weather Data:', response.data);
     setWeatherData(response.data);
   }).catch((error) => {
@@ -46,28 +48,43 @@ const Home = () => {
   }
 },[]);
 // to get the weather icon based on the rain probability and temperature
-// TODO: Add More Icons For More Weather Conditions
-// FIXME: Icons Not Work With the weather
-const getWeatherIcon = (rainProbability, temp) => {
+const getWeatherIcon = (rainProbability, temp, className) => {
+  if (temp < 0) {
+    if (rainProbability > 50) {
+      return <CloudSnow className={`${className} text-blue-200`} />; // Heavy snow
+    } else if (rainProbability > 20) {
+      return <Snowflake className={`${className} text-blue-100`} />; // Light snow
+    } else {
+      return <CloudSnow className={`${className} text-gray-300`} />; // snow clouds
+    }
+  }
+  // طقس بارد جداً (0-5 درجات)
+  else if (temp >= 0 && temp <= 5) {
+    if (rainProbability > 40) {
+      return <CloudRain className={`${className} w-16 h-16 text-blue-300`} />; // cold rain
+    } else {
+      return <Cloud className={`${className} w-16 h-16 text-gray-300`} />; // cold clouds
+    }
+  }
   // مطر غزير
-  if (rainProbability > 70) {
-    return <CloudRain className="w-16 h-16 text-gray-50" />;
+  else if (rainProbability > 70) {
+    return <CloudRain className={`${className} text-gray-50`} />;
   } 
   // رذاذ خفيف
   else if (rainProbability > 40) {
-    return <CloudDrizzle className="w-16 h-16 text-gray-50" />;
+    return <CloudDrizzle className={`${className} text-gray-50`} />;
   } 
   // غيوم
   else if (rainProbability > 20) {
-    return <Cloudy className="w-16 h-16 text-gray-50" />;
+    return <Cloudy className={`${className} w-16 h-16 text-gray-50`} />;
   }
   // غيوم خفيفة
   else if (rainProbability > 10) {
-    return <Cloud className="w-16 h-16 text-gray-50" />;
+    return <Cloud className={`${className} w-16 h-16 text-gray-50`} />;
   }
   // شمس ساطعة
   else {
-    return <Sun className="w-16 h-16 text-yellow-300 fill-yellow-300" />;
+    return <Sun className={`${className} text-yellow-300 fill-yellow-300`} />;
   }
 };
   // To fix time format
@@ -113,7 +130,7 @@ const next6Hours = hourly.time.slice(0,6).map((time,i) => ({
             </h1>
           </div>
           <div>
-            <Sun className="w-16 h-16 md:w-24 md:h-24 lg:w-32 lg:h-32 text-accent fill-accent" />
+            {getWeatherIcon(current.precipitation_probability, current.temperature_2m,'w-16 h-16 md:w-24 md:h-24 lg:w-32 lg:h-32')}
           </div>
         </div>
         {/* == First Section === */}
@@ -132,7 +149,7 @@ const next6Hours = hourly.time.slice(0,6).map((time,i) => ({
                       {hour.time}
                     </h4>
                     <span className="mt-2 mb-4 p-2">
-                      {getWeatherIcon(hour.rainPord, hour.temp)}
+                      {getWeatherIcon(hour.rainPord, hour.temp, "w-16 h-16")}
                     </span>
                     <h4 className="text-lg font-mono tracking-tight dark:text-gray-50 text-white">
                       {Math.round(hour.temp)}°
