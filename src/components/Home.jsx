@@ -21,11 +21,19 @@ const link = `https://api.open-meteo.com/v1/forecast?latitude=35.3621&longitude=
 // const link = `https://api.open-meteo.com/v1/forecast?latitude=64.1466&longitude=-21.9426&current=temperature_2m,apparent_temperature,precipitation_probability,wind_speed_10m&hourly=temperature_2m,apparent_temperature,precipitation_probability,wind_speed_10m,uv_index&timezone=auto&past_hours=6`;
 // react
 import { useEffect, useState } from "react";
+// Other
+import { useTranslation } from 'react-i18next';
 
 let cancelAxios = null;
 const Home = () => {
   console.log('Rendring the component => Mounting');
+  const { t, i18n } = useTranslation();
+
   const [weatherData, setWeatherData] = useState(null);
+
+  useEffect(() => {
+    i18n.changeLanguage('ar')
+  },[]);
 
   useEffect(() => {
   axios.get(link, {
@@ -114,6 +122,7 @@ const next6Hours = hourly.time.slice(0,6).map((time,i) => ({
 }))
   return (
     <>
+    <h1>{t('welcome_react')}</h1>
       {/* Main Content */}
       <div className="container max-w-4xl mx-auto px-4">
         {/* First Section */}
