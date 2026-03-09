@@ -6,7 +6,10 @@ import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
 import { Field } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+// Other
+import { useTranslation } from 'react-i18next';
 const MainHeader = ({ logo }) => {
+  const { t } = useTranslation();
   return (
     <>
       <div className="hidden md:flex items-center justify-between h-16">
@@ -20,7 +23,7 @@ const MainHeader = ({ logo }) => {
               className="h-8 w-auto md:h-10 lg:h-12 object-contain"
             />
           </a>
-          <h1 className="text-xl font-bold text-primary-foreground">Hawaa</h1>
+          <h1 className="text-xl font-bold text-primary-foreground">{t('app_name')}</h1>
         </div>
          {/* Navigation Links */}
           <nav className="flex items-center gap-6">
@@ -29,21 +32,21 @@ const MainHeader = ({ logo }) => {
               className="flex items-center gap-2 text-primary-foreground hover:text-3xl  transition-colors font-medium"
             >
               <Calendar className="w-4 h-4" /> 
-              <span>التوقعات</span>
+              <span>{t('forecasts')}</span>
             </a>
             <a
               href="#"
               className="flex items-center gap-2 text-primary-foreground hover:text-3xl transition-colors font-medium"
             >
               <Star className="w-4 h-4" />
-              <span>المفضلة</span>
+              <span>{t('favorites')}</span>
             </a>
             <a
               href="#"
               className="flex items-center gap-2 text-primary-foreground hover:text-3xl transition-colors font-medium"
             >
               <MessageSquareWarning className="w-4 h-4" />
-              <span>حول</span>
+              <span>{t('about')}</span>
             </a>
           </nav>
         </div>
@@ -56,10 +59,10 @@ const MainHeader = ({ logo }) => {
               <ButtonGroup>
                 <Input
                   id="input-button-group"
-                  placeholder="Type to search..."
+                  placeholder={t('type_to_search')}
                   className="text-primary-foreground placeholder:text-secondary dark:placeholder:text-gray-400"
                 />
-                <Button variant="outline" className="">Search</Button>
+                <Button variant="outline" className="">{t('search')}</Button>
               </ButtonGroup>
             </Field>
           </div>

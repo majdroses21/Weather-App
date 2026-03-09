@@ -32,10 +32,6 @@ const Home = () => {
   const [weatherData, setWeatherData] = useState(null);
 
   useEffect(() => {
-    i18n.changeLanguage('ar')
-  },[]);
-
-  useEffect(() => {
   axios.get(link, {
     cancelToken: new axios.CancelToken((c) => {
       cancelAxios = c;
@@ -108,7 +104,7 @@ const getWeatherIcon = (rainProbability, temp, className) => {
 if (!weatherData) {
   return (
     <div className="container max-w-4xl mx-auto px-4 flex justify-center items-center min-h-screen">
-      <p className="text-xl">Loading weather data...</p>
+      <p className="text-xl">{t('loading_weather_data')}</p>
     </div>
   );
 }
@@ -129,10 +125,10 @@ const next6Hours = hourly.time.slice(0,6).map((time,i) => ({
         <div className=" bg-transparent max-w-7xl mx-auto px-4 flex justify-between">
           <div>
             <h1 className="scroll-m-20 text-6xl font-extrabold tracking-tight text-balance">
-              Jableh
+              {t('city_name')}
             </h1>
             <p className="text-gray-800 dark:text-gray-50">
-              Chance of rain: {current.precipitation_probability}%
+              {t('chance_of_rain')} {current.precipitation_probability}%
             </p>
             <h1 className="scroll-m-20 text-5xl font-extrabold tracking-tight text-balance mt-7">
               {Math.round(current.temperature_2m)}°
@@ -148,7 +144,7 @@ const next6Hours = hourly.time.slice(0,6).map((time,i) => ({
         {/* Second Section Today's */}
         <div className="container mx-auto p-4 rounded-xl bg-primary">
           <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight text-gray-200 dark:text-zinc-300">
-            Todays Forecas
+            {t('todays_forecast')}
           </h3>
           <div className="p-3 mt-1 mb-1 w flex justify-center items-center flex-wrap">
             {next6Hours.map((hour, i) => (
@@ -174,7 +170,7 @@ const next6Hours = hourly.time.slice(0,6).map((time,i) => ({
         {/* Air Section */}
         <div className="container mx-auto p-4 rounded-xl bg-primary">
           <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight text-gray-200 dark:text-zinc-300 mb-2">
-            Air Condations
+            {t('air_conditions')}
           </h3>
 
           <div className="grid grid-cols-2 gap-x-12 gap-y-6">
@@ -182,7 +178,7 @@ const next6Hours = hourly.time.slice(0,6).map((time,i) => ({
             <div className="flex flex-col">
               <div className="flex items-center gap-2 text-gray-50 mb-2">
                 <ThermometerSun className="w-8 h-8" />
-                <span className="">Real Feel</span>
+                <span className="">{t('real_feel')}</span>
               </div>
               <h4 className="scroll-m-20 text-2xl font-bold tracking-tight text-zinc-50 dark:text-zinc-300">
                 30o
@@ -192,30 +188,30 @@ const next6Hours = hourly.time.slice(0,6).map((time,i) => ({
             <div className="flex flex-col">
               <div className="flex items-center gap-2 text-gray-50 mb-2">
                 <Wind className="w-8 h-8" />
-                <span>Wind</span>
+                <span>{t('wind')}</span>
               </div>
               <h4 className="scroll-m-20 text-2xl font-bold tracking-tight text-zinc-50 dark:text-zinc-300">
-                0.2 km/h
+                {Math.round(current.wind_speed_10m)} {t('kmh')}
               </h4>
             </div>
             {/* Chance of Rain */}
             <div className="flex flex-col">
               <div className="flex items-center gap-2 text-gray-50 mb-2">
                 <Droplets className="w-8 h-8" />
-                <span> Chance of rain</span>
+                <span> {t('chance_of_rain')}</span>
               </div>
               <h4 className="scroll-m-20 text-2xl font-bold tracking-tight text-zinc-50 dark:text-zinc-300">
-                0.2 km/h
+                {current.precipitation_probability}{t('percent')}
               </h4>
             </div>
             {/* UV Index */}
             <div className="flex flex-col">
               <div className="flex items-center gap-2 text-gray-50 mb-2">
                 <Sun className="w-8 h-8 " />
-                <span>UV Index</span>
+                <span>{t('uv_index')}</span>
               </div>
               <h4 className="scroll-m-20 text-2xl font-bold tracking-tight text-zinc-50 dark:text-zinc-300">
-                0.2 km/h
+                {Math.round(hourly.uv_index[0])}
               </h4>
             </div>
           </div>

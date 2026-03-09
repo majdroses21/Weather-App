@@ -1,4 +1,6 @@
 import { Facebook, Send, Linkedin } from "lucide-react";
+// Other
+import { useTranslation } from 'react-i18next';
 
 const socials = [
   { href: "https://facebook.com/majdDev21", label: "Facebook", Icon: Facebook },
@@ -6,8 +8,10 @@ const socials = [
   { href: "https://t.me/majdroses21", label: "Telegram", Icon: Send },
 ];
 
-const Footer = () => (
-  <footer className="footer bg-primary p-4 mt-auto">
+const Footer = () => {
+  const { t } = useTranslation();
+  return (
+    <footer className="footer bg-primary p-4 mt-auto">
     <div className="max-w-7xl mx-auto px-4 text-center">
       <ul className="flex justify-center gap-3 p-0 m-0 list-none mb-3">
         {socials.map(({ href, label, Icon }) => (
@@ -26,9 +30,10 @@ const Footer = () => (
         ))}
       </ul>
 
-      <p className="font-medium text-[0.9rem] text-white">All Copyrights are Saved © {new Date().getFullYear()}</p>
+      <p className="font-medium text-[0.9rem] text-white">{t('copyright')} {new Date().getFullYear()}</p>
     </div>
   </footer>
-);
+  );
+};
 
 export default Footer;

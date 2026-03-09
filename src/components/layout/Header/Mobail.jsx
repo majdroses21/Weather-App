@@ -16,10 +16,13 @@ import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
 import { Field } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+// Other
+import { useTranslation } from 'react-i18next';
 // Logo placeholder
 import { useState } from "react";
 
 const MobailHeader = ({ logo }) => {
+  const { t } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
@@ -38,15 +41,15 @@ const MobailHeader = ({ logo }) => {
               <Menu className="w-6 h-6 text-gray-700" />
             )}
           </button>
-          <h1 className="text-lg font-bold text-primary-foreground">Hawaa</h1>
+          <h1 className="text-lg font-bold text-primary-foreground">{t('app_name')}</h1>
         </div>
 
         {/* Center - Search Box */}
         <div className="relative flex-1 mx-3">
           <Field>
             <ButtonGroup>
-              <Input id="input-button-group" placeholder="Type to search..." className="placeholder:text-primary-foreground'" />
-              <Button variant="outline">Search</Button>
+              <Input id="input-button-group" placeholder={t('type_to_search')} className="placeholder:text-primary-foreground'" />
+              <Button variant="outline">{t('search')}</Button>
             </ButtonGroup>
           </Field>
         </div>
@@ -82,7 +85,7 @@ const MobailHeader = ({ logo }) => {
                   className="h-8 w-auto md:h-10 lg:h-12 object-contain"
                 />
               </a>
-              <h2 className="text-xl font-bold text-primary-foreground">Hawaa</h2>
+              <h2 className="text-xl font-bold text-primary-foreground">{t('app_name')}</h2>
             </div>
           </div>
 
@@ -95,7 +98,7 @@ const MobailHeader = ({ logo }) => {
                   className="flex items-center gap-3 text-black dark:text-white hover:text-blue-600 transition-colors"
                 >
                   <Calendar className="w-5 h-5" />
-                  <span>توقعات الأسبوع</span>
+                  <span>{t('weekly_forecasts')}</span>
                 </a>
               </li>
               <li>
@@ -104,7 +107,7 @@ const MobailHeader = ({ logo }) => {
                   className="flex items-center gap-3 text-black dark:text-white hover:text-blue-600 transition-colors"
                 >
                   <Star className="w-5 h-5" />
-                  <span>مدني المفضلة</span>
+                  <span>{t('favorite_cities')}</span>
                 </a>
               </li>
               <li>
@@ -114,7 +117,7 @@ const MobailHeader = ({ logo }) => {
                     className="flex items-center gap-3 text-black dark:text-white hover:text-blue-600 transition-colors"
                   >
                     <Settings className="w-5 h-5" />
-                    <span>الإعدادات</span>
+                    <span>{t('settings')}</span>
                   </a>
                 </ThemeModal>
               </li>
@@ -124,7 +127,7 @@ const MobailHeader = ({ logo }) => {
                   className="flex items-center gap-3 text-black dark:text-white hover:text-blue-600 transition-colors"
                 >
                   <Bell className="w-5 h-5" />
-                  <span>الإشعارات</span>
+                  <span>{t('notifications')}</span>
                 </a>
               </li>
               <li>
@@ -133,7 +136,7 @@ const MobailHeader = ({ logo }) => {
                   className="flex items-center gap-3 text-black dark:text-white hover:text-blue-600 transition-colors"
                 >
                   <MessageSquareWarning className="w-5 h-5" />
-                  <span>حول</span>
+                  <span>{t('about')}</span>
                 </a>
               </li>
             </ul>
