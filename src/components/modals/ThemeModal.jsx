@@ -11,10 +11,11 @@ import { ThemeControls } from "../ThemeControls";
 import { useTranslation } from 'react-i18next';
 const ThemeModal = ({ children }) => {
   const { t, i18n } = useTranslation();
+  const dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
   return (
-    <Dialog>
+    <Dialog dir={dir}>
       {children ? <DialogTrigger asChild>{children}</DialogTrigger> : null}
-      <DialogContent>
+      <DialogContent  dir={dir}>
         <DialogHeader>
           <DialogTitle> {t('app_setting')} </DialogTitle>
           <DialogDescription>
