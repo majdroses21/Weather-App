@@ -23,15 +23,28 @@ const link = `https://api.open-meteo.com/v1/forecast?latitude=35.3621&longitude=
 import { useEffect, useState } from "react";
 // Other
 import { useTranslation } from 'react-i18next';
+//Redux
+import { useSelector, useDispatch } from "react-redux";
+import { changeResult } from "../features/weatherApiSlice";
+
 
 let cancelAxios = null;
 const Home = () => {
+  //Redux Code
+  const dispatch = useDispatch();
+  const result = useSelector((state) => {
+    console.log('the state is: ', state);
+    return state.result;
+  })
+
   console.log('Rendring the component => Mounting');
   const { t, i18n } = useTranslation();
 
   const [weatherData, setWeatherData] = useState(null);
 
   useEffect(() => {
+    // Tring Redux 
+    dispatch(changeResult())
   axios.get(link, {
     cancelToken: new axios.CancelToken((c) => {
       cancelAxios = c;
