@@ -13,56 +13,43 @@ import {
   Snowflake,
 } from "lucide-react";
 
-//axios
-import axios from "axios";
-const link = `https://api.open-meteo.com/v1/forecast?latitude=35.3621&longitude=35.9276&current=temperature_2m,apparent_temperature,precipitation_probability,wind_speed_10m&hourly=temperature_2m,apparent_temperature,precipitation_probability,wind_speed_10m,uv_index&timezone=auto&past_hours=6`;
-// Links For Testing
-// const link = `https://api.open-meteo.com/v1/forecast?latitude=55.7558&longitude=37.6173&current=temperature_2m,apparent_temperature,precipitation_probability,wind_speed_10m&hourly=temperature_2m,apparent_temperature,precipitation_probability,wind_speed_10m,uv_index&timezone=auto&past_hours=6`;
-// const link = `https://api.open-meteo.com/v1/forecast?latitude=64.1466&longitude=-21.9426&current=temperature_2m,apparent_temperature,precipitation_probability,wind_speed_10m&hourly=temperature_2m,apparent_temperature,precipitation_probability,wind_speed_10m,uv_index&timezone=auto&past_hours=6`;
 // react
 import { useEffect, useState } from "react";
 // Other
 import { useTranslation } from 'react-i18next';
 //Redux
 import { useSelector, useDispatch } from "react-redux";
-import { changeResult } from "../features/weatherApiSlice";
+import { changeResult,fetchWeather } from "../features/weatherApiSlice";
 
 
 let cancelAxios = null;
 const Home = () => {
   //Redux Code
   const dispatch = useDispatch();
-  const result = useSelector((state) => {
-    console.log('the state is: ', state);
-    return state.result;
-  })
 
   console.log('Rendring the component => Mounting');
   const { t, i18n } = useTranslation();
 
-  const [weatherData, setWeatherData] = useState(null);
+  // const [weatherData, setWeatherData] = useState(null);
+  const isLoading = useSelector((state) => {
+    return state.weather.isLoading
+  });
+  const weatherData = useSelector((state) => {
+    return state.weather.weather
+  });
+  const error = useSelector((state) => {
+    return state.weather.error
+  })
 
   useEffect(() => {
     // Tring Redux 
     dispatch(changeResult())
-  axios.get(link, {
-    cancelToken: new axios.CancelToken((c) => {
-      cancelAxios = c;
-    })
-  }).then((response) => {
-    // handling success
-    console.log('Weather Data:', response.data);
-    setWeatherData(response.data);
-  }).catch((error) => {
-      if (!axios.isCancel(error)) {
-        console.error('Error fetching weather:', error);
-      }
-  });
+    dispatch(fetchWeather())
   // Check if if;
-  return () => {
-    cancelAxios();
-    console.log('Unmounting the component => Cleanup => Cancelling Axios Request');
-  }
+  // return () => {
+    // cancelAxios();
+    // console.log('Unmounting the component => Cleanup => Cancelling Axios Request');
+  // }
 },[]);
 // to get the weather icon based on the rain probability and temperature
 const getWeatherIcon = (rainProbability, temp, className) => {
@@ -114,7 +101,23 @@ const getWeatherIcon = (rainProbability, temp, className) => {
   });
 };
 
-if (!weatherData) {
+if (isLoading) {
+  return (
+    <div className="container max-w-4xl mx-auto px-4 flex justify-center items-center min-h-screen">
+      <p className="text-xl">{t('loading_weather_data')}</p>
+    </div>
+  );
+}
+
+if (error) {
+  return (
+    <div className="container max-w-4xl mx-auto px-4 flex justify-center items-center min-h-screen">
+      <p className="text-xl text-red-500">Error loading weather data: {error}</p>
+    </div>
+  );
+}
+
+if (!weatherData || !weatherData.current || !weatherData.hourly) {
   return (
     <div className="container max-w-4xl mx-auto px-4 flex justify-center items-center min-h-screen">
       <p className="text-xl">{t('loading_weather_data')}</p>
@@ -194,7 +197,7 @@ const next6Hours = hourly.time.slice(0,6).map((time,i) => ({
                 <span className="">{t('real_feel')}</span>
               </div>
               <h4 className="scroll-m-20 text-2xl font-bold tracking-tight text-zinc-50 dark:text-zinc-300">
-                30o
+                {Math.round(current.apparent_temperature)}°
               </h4>
             </div>
             {/* Wind */}
